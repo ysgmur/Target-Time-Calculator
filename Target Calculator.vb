@@ -33,32 +33,32 @@ Set Target = wb.Sheets("Target")
 Dim DataCodeMethod As Integer
 DataCodeMethod = 28
 
-Dim FCP_CX_Basis_Weight As Integer
-FCP_CX_Basis_Weight = 31
+Dim Parameter1 As Integer
+Parameter1 = 31
 
-Dim FCP_IA_Bobbin_Width As Integer
-FCP_IA_Bobbin_Width = 34
+Dim Parameter2 As Integer
+Parameter2 = 34
 
-Dim FCP_IA_Aluminium_Thickness As Integer
-FCP_IA_Aluminium_Thickness = 35
+Dim Parameter3 As Integer
+Parameter3 = 35
 
-Dim FCP_IA_Total_Basis_Weight As Integer
-FCP_IA_Total_Basis_Weight = 36
+Dim Parameter4 As Integer
+Parameter4 = 36
                               'COLUMN NUMBERS ON QualitySpec SHEED
-Dim FCP_IF_Basis_Weight As Integer
-FCP_IF_Basis_Weight = 41
+Dim Parameter5 As Integer
+Parameter5 = 41
 
-Dim FCP_IF_Bobbin_Width As Integer
-FCP_IF_Bobbin_Width = 42
+Dim Parameter6 As Integer
+Parameter6 = 42
 
-Dim FCP_TX_Cut_Length As Integer
-FCP_TX_Cut_Length = 49
+Dim Parameter7 As Integer
+Parameter7 = 49
 
-Dim FCP_TX_Width As Integer
-FCP_TX_Width = 50
+Dim Parameter8 As Integer
+Parameter8 = 50
 
-Dim OLFA As Integer
-OLFA = 56
+Dim Parameter9 As Integer
+Parameter9 = 56
 
 
 LastRowQualitySpec = QualitySpec.Cells(QualitySpec.Rows.Count, "E").End(xlUp).Row
@@ -126,7 +126,7 @@ Else
 End If
 
 
-'Marka
+'Brand
 
 If Not rng_from Is Nothing Then
     rownumber_from = rng_from.Row
@@ -142,7 +142,7 @@ If Not rng_to Is Nothing Then
        
 End If
 
-'comparing marka
+'comparing brand
 If mainPage.Cells(13, 1).Value <> mainPage.Cells(13, 4).Value Then
     mainPage.Cells(13, 8).Value = "Changed"
     
@@ -189,7 +189,7 @@ Else
 End If
 
 
-'FCP/CX Basis Weight:
+'Parameter1:
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -197,7 +197,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(19, 1).Value = QualitySpec.Cells(rownumber_from, FCP_CX_Basis_Weight).Value
+    mainPage.Cells(19, 1).Value = QualitySpec.Cells(rownumber_from, Parameter1).Value
         
 End If
         
@@ -208,11 +208,11 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(19, 4).Value = QualitySpec.Cells(rownumber_to, FCP_CX_Basis_Weight).Value
+    mainPage.Cells(19, 4).Value = QualitySpec.Cells(rownumber_to, Parameter1).Value
 
 End If
 
-'comparing of 'FCP/CX Basis Weight:
+'comparing of 'Parameter1:
 
 If mainPage.Cells(19, 1).Value <> mainPage.Cells(19, 4).Value Then
 
@@ -224,7 +224,7 @@ End If
 
      
    
-' FCP/IA Bobbin Width
+' Parameter2
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -232,7 +232,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(22, 1).Value = QualitySpec.Cells(rownumber_from, FCP_IA_Bobbin_Width).Value
+    mainPage.Cells(22, 1).Value = QualitySpec.Cells(rownumber_from, Parameter2).Value
 
 End If
         
@@ -243,11 +243,11 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(22, 4).Value = QualitySpec.Cells(rownumber_to, FCP_IA_Bobbin_Width).Value
+    mainPage.Cells(22, 4).Value = QualitySpec.Cells(rownumber_to, Parameter2).Value
         
 End If
 
-'comparing FCP/IA Bobbin Width
+'comparing Parameter2
 
 If mainPage.Cells(22, 1) <> mainPage.Cells(22, 4) Then
 
@@ -262,17 +262,17 @@ End If
 
 If mainPage.Cells(22, 1).Value = 0 Then
 
-    mainPage.Cells(22, 1).Value = "Mentollü"
+    mainPage.Cells(22, 1).Value = "Ment"
     
 End If
 
 If mainPage.Cells(22, 4).Value = 0 Then
 
-    mainPage.Cells(22, 4).Value = "Mentollü"
+    mainPage.Cells(22, 4).Value = "Ment"
     
 End If
 
-'FCP/IA Aluminium Thickness
+'Parameter3
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -280,7 +280,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(25, 1).Value = QualitySpec.Cells(rownumber_from, FCP_IA_Aluminium_Thickness).Value
+    mainPage.Cells(25, 1).Value = QualitySpec.Cells(rownumber_from, Parameter3).Value
 
 End If
         
@@ -291,12 +291,12 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(25, 4).Value = QualitySpec.Cells(rownumber_to, FCP_IA_Aluminium_Thickness).Value
+    mainPage.Cells(25, 4).Value = QualitySpec.Cells(rownumber_to, Parameter3).Value
 
         
 End If
 
-'comparing FCP/IA Aluminium Thickness
+'comparing Parameter3
 
 
 
@@ -312,18 +312,18 @@ End If
 
 If mainPage.Cells(25, 1).Value = 0 Then
 
-    mainPage.Cells(25, 1).Value = "Mentollü"
+    mainPage.Cells(25, 1).Value = "Ment"
     
 End If
 
 If mainPage.Cells(25, 4).Value = 0 Then
 
-    mainPage.Cells(25, 4).Value = "Mentollü"
+    mainPage.Cells(25, 4).Value = "Ment                                                            "
     
 End If
+                                                      
 
-
-'FCP/IA Total Basis Weight
+'Parameter4
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -331,7 +331,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(28, 1).Value = QualitySpec.Cells(rownumber_from, FCP_IA_Total_Basis_Weight).Value
+    mainPage.Cells(28, 1).Value = QualitySpec.Cells(rownumber_from, Parameter4).Value
 
 End If
         
@@ -342,12 +342,12 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(28, 4).Value = QualitySpec.Cells(rownumber_to, FCP_IA_Total_Basis_Weight).Value
+    mainPage.Cells(28, 4).Value = QualitySpec.Cells(rownumber_to, Parameter4).Value
 
         
 End If
 
-' comparing FCP/IA Total Basis Weight
+' comparing Parameter4
 
 If mainPage.Cells(28, 1).Value <> mainPage.Cells(28, 4).Value Then
 
@@ -367,7 +367,7 @@ If mainPage.Cells(28, 4).Value = 0 Then
 End If
 
 
-'FCP/IF Basis Weight
+'Parameter5
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -375,7 +375,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(31, 1).Value = QualitySpec.Cells(rownumber_from, FCP_IF_Basis_Weight).Value
+    mainPage.Cells(31, 1).Value = QualitySpec.Cells(rownumber_from, Parameter5).Value
 
 End If
         
@@ -386,12 +386,11 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(31, 4).Value = QualitySpec.Cells(rownumber_to, FCP_IF_Basis_Weight).Value
+    mainPage.Cells(31, 4).Value = QualitySpec.Cells(rownumber_to, Parameter5).Value
     
 End If
 
-'comparing FCP/IF Basis Weight
-
+'Parameter5
 If mainPage.Cells(31, 1).Value <> mainPage.Cells(31, 4).Value Then
 
     mainPage.Cells(31, 8) = "Changed"
@@ -404,7 +403,7 @@ End If
 
 
 
-'FCP/IF Bobbin Width
+'Parameter6
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -412,7 +411,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(34, 1).Value = QualitySpec.Cells(rownumber_from, FCP_IF_Bobbin_Width).Value
+    mainPage.Cells(34, 1).Value = QualitySpec.Cells(rownumber_from, Parameter6).Value
 
 End If
         
@@ -423,11 +422,11 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(34, 4).Value = QualitySpec.Cells(rownumber_to, FCP_IF_Bobbin_Width).Value
+    mainPage.Cells(34, 4).Value = QualitySpec.Cells(rownumber_to, Parameter6).Value
     
 End If
 
-'comparing FCP/IF Bobbin Width
+'comparing Parameter6
 
 If mainPage.Cells(34, 1).Value <> mainPage.Cells(34, 4).Value Then
 
@@ -446,7 +445,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(37, 1).Value = QualitySpec.Cells(rownumber_from, FCP_TX_Width).Value
+    mainPage.Cells(37, 1).Value = QualitySpec.Cells(rownumber_from, Parameter8).Value
 
 End If
         
@@ -457,11 +456,11 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(37, 4).Value = QualitySpec.Cells(rownumber_to, FCP_TX_Width).Value
+    mainPage.Cells(37, 4).Value = QualitySpec.Cells(rownumber_to, Parameter8).Value
     
 End If
 
-'comparing FCP_TX_Width
+'comparing Parameter8
 
 If mainPage.Cells(37, 1).Value <> mainPage.Cells(37, 4).Value Then
 
@@ -472,7 +471,7 @@ Else
 
 End If
 
-'FCP/TX Cut Length
+'Parameter7
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -480,7 +479,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(40, 1).Value = QualitySpec.Cells(rownumber_from, FCP_TX_Cut_Length).Value
+    mainPage.Cells(40, 1).Value = QualitySpec.Cells(rownumber_from, Parameter7).Value
 
 End If
         
@@ -491,7 +490,7 @@ If Not rng_to Is Nothing Then
 
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(40, 4).Value = QualitySpec.Cells(rownumber_to, FCP_TX_Cut_Length).Value
+    mainPage.Cells(40, 4).Value = QualitySpec.Cells(rownumber_to, Parameter7).Value
     
 End If
 
@@ -505,13 +504,13 @@ Else
     
 End If
 
-'NX size change
+'X size change
 
-mainPage.Cells(43, 1).Value = QualitySpec.Cells(rownumber_from, FCP_TX_Width).Value & "x" & QualitySpec.Cells(rownumber_from, FCP_TX_Cut_Length).Value
+mainPage.Cells(43, 1).Value = QualitySpec.Cells(rownumber_from, Parameter8).Value & "x" & QualitySpec.Cells(rownumber_from, Parameter7).Value
 
-mainPage.Cells(43, 4).Value = QualitySpec.Cells(rownumber_to, FCP_TX_Width).Value & "x" & QualitySpec.Cells(rownumber_to, FCP_TX_Cut_Length).Value
+mainPage.Cells(43, 4).Value = QualitySpec.Cells(rownumber_to, Parameter8).Value & "x" & QualitySpec.Cells(rownumber_to, Parameter7).Value
 
-'comparing NX size change
+'comparing X size change
 If mainPage.Cells(43, 1).Value <> mainPage.Cells(43, 4).Value Then
 
     mainPage.Cells(43, 8).Value = "Changed"
@@ -522,7 +521,7 @@ Else
 End If
 
 
-'FCP/CGT Other Flavour Appl. Method Descr
+'Parameter9
 
 Set rng_from = QualitySpec.Columns("E:E").Find(what:=fromId, LookIn:=xlFormulas, Lookat:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, MatchCase:=False, SearchFormat:=False)
   
@@ -530,7 +529,7 @@ If Not rng_from Is Nothing Then
 
     rownumber_from = rng_from.Row
     
-    mainPage.Cells(46, 1).Value = QualitySpec.Cells(rownumber_from, OLFA).Value
+    mainPage.Cells(46, 1).Value = QualitySpec.Cells(rownumber_from, Parameter9).Value
 
 End If
         
@@ -540,11 +539,11 @@ Set rng_to = QualitySpec.Columns("E:E").Find(what:=toId, LookIn:=xlFormulas, Loo
 If Not rng_to Is Nothing Then
     rownumber_to = rng_to.Row
     
-    mainPage.Cells(46, 4).Value = QualitySpec.Cells(rownumber_to, OLFA).Value
+    mainPage.Cells(46, 4).Value = QualitySpec.Cells(rownumber_to, Parameter9).Value
     
 End If
 
-    'comparision of FCP/CGT Other Flavour Appl. Method Descr
+    'comparision of Parameter9
     
     If mainPage.Cells(46, 1).Value <> mainPage.Cells(46, 4).Value Then
     
